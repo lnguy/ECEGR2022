@@ -2,9 +2,9 @@
 
     .data   # Data declaration section
 
-varA:   .word   10
+varA:   .word   15
 varB:   .word   15
-varC:   .word   6
+varC:   .word   10
 varZ:   .word   0
 
     .text
@@ -28,11 +28,11 @@ main:       # Start of code section
 	j Exit
 	
 	# Else if statement
-ElseIf: slt s1, a1, a0 # A < B
+ElseIf: slt s1, a1, a0 # A > B
 	addi t5, a2, 1 # (C+1)
 	addi t5, t5, -7 # (C+1)-7
 	beq a2, zero, trueCheck # (C+1)-7 == 0 (if conditional is true)
-	beq s1, zero, trueCheck # checks if (A < B) is true
+	bne s1, zero, trueCheck # checks if (A > B) is true
 	
 	# This is the Else statement
 	addi a3, zero, 3 # Z = 3
