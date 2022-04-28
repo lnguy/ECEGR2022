@@ -117,20 +117,20 @@ begin
 	writin <= writein32 & writein16 & writein8;
 
 	with enableout select
-		enablingout <= "1110" when "110",
-				"1100" when "101",
+		enablingout <= "0111" when "110",
+				"0011" when "101",
 				"0000" when "011",
 				"1111" when others;
 	with writin select
-		writingin <= "0001" when "001",
-				"0011" when "010",
+		writingin <= "1000" when "001",
+				"1100" when "010",
 				"1111" when "100",
 				"0000" when others;
 
-	reg1: register8 PORT MAP (datain(31 downto 24), enablingout(3), writingin(3), dataout(31 downto 24));
-	reg2: register8 PORT MAP (datain(23 downto 16), enablingout(2), writingin(2), dataout(23 downto 16));
-	reg3: register8 PORT MAP (datain(15 downto 8), enablingout(1), writingin(1), dataout(15 downto 8));
-	reg4: register8 PORT MAP (datain(7 downto 0), enablingout(0), writingin(0), dataout(7 downto 0));
+	reg1: register8 PORT MAP (datain(7 downto 0), enablingout(0), writingin(0), dataout(7 downto 0));
+	reg2: register8 PORT MAP (datain(15 downto 8), enablingout(1), writingin(1), dataout(15 downto 8));
+	reg3: register8 PORT MAP (datain(23 downto 16), enablingout(2), writingin(2), dataout(23 downto 16));
+	reg4: register8 PORT MAP (datain(31 downto 24), enablingout(3), writingin(3), dataout(31 downto 24));
 end architecture biggermem;
 
 --------------------------------------------------------------------------------
