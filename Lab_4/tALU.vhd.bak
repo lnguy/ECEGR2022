@@ -56,12 +56,6 @@ BEGIN
 		wait for 20 ns; 			-- result = 0x124578AB  and zeroOut = 0
 
 		-- Add test cases here to drive the ALU implementation
-		--
-		datain_a
-		datain_b
-		control
-		wait for 20 ns;
-		--
 
 		--datain_a <= x"
 

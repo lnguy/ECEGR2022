@@ -98,15 +98,15 @@ process(WriteCmd, WriteReg)
 begin
 	if (WriteCmd = '1') then
 		case WriteReg is
-			 when "01010" => writein <= "00000001";
-			 when "01011" => writein <= "00000010";
-			 when "01100" => writein <= "00000100";
-			 when "01101" => writein <= "00001000";
-			 when "01110" => writein <= "00010000";
-			 when "01111" => writein <= "00100000";
-			 when "10000" => writein <= "01000000";
-			 when "10001" => writein <= "10000000";
-			 when others => writein <= "00000000";
+			 when "01010" => (writein <= "00000001");
+			 when "01011" => (writein <= "00000010");
+			 when "01100" => (writein <= "00000100");
+			 when "01101" => (writein <= "00001000");
+			 when "01110" => (writein <= "00010000");
+			 when "01111" => (writein <= "00100000");
+			 when "10000" => (writein <= "01000000");
+			 when "10001" => (writein <= "10000000");
+			 when others => (writein <= "00000000");
 		end case;
 	else
 		writein <= "00000000";
@@ -122,7 +122,7 @@ ReadData1 <= 	write_vector_0 when (ReadReg1="01010") else
 		write_vector_6 when (ReadReg1="10000") else
 		write_vector_7 when (ReadReg1="10001") else
 		write_0 when (ReadReg1="00000") else
-		(others => 'Z');
+		others => 'Z';
 
 ReadData2 <=	write_vector_0 when (ReadReg2="01010") else
 		write_vector_1 when (ReadReg2="01011") else
@@ -133,7 +133,7 @@ ReadData2 <=	write_vector_0 when (ReadReg2="01010") else
 		write_vector_6 when (ReadReg2="10000") else
 		write_vector_7 when (ReadReg2="10001") else
 		write_0 when (ReadReg2="00000") else
-		(others => 'Z');
+		others => 'Z';
 
 x0: register32 PORT MAP (WriteData,'0','1','1','0','0','0', write_0);
 A0_x10: register32 PORT MAP (WriteData,'0','1','1', writein(0),'0','0', write_vector_0);

@@ -170,7 +170,7 @@ begin
 
 	adder0: fulladder PORT MAP (datain_a(0), tempB(0), C(0), dataout(0), C(1));
 	genAdders: for i in 31 downto 1 generate
-			adderi: fulladder PORT MAP (datain_a(i), tempB(i), C(i), dataout(i), C(i+1));
+	adderi: fulladder PORT MAP (datain_a(i), tempB(i), C(i), dataout(i), C(i+1));
 	end generate;
 
 end architecture calc;
